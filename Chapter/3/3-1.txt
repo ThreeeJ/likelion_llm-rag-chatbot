@@ -1,0 +1,40 @@
+# 강의 제목 : API 개념과 인증방식 돌아보기
+
+## Keyword
+- Rest API, API Token, API Key, Nest.js, OOP, Runtime, API Path
+
+### API : Application Programming Interface
+### Rest API : Representational State Transfer
+
+---
+
+## API와 Rest API
+- API : 프로그램을 돌려서 만들어진 프로세스와 상호작용하기 위한 정해진 양식
+- Rest API : "상태 전이"를 나타내는 애플리케이션 프로그래밍 인터페이스
+  1. URL로 자원의 위치를 구분
+  2. HTTP Method를 통해 자원의 접근을 구분
+  3. URL Path를 기반으로 요청의 경로를 구분
+  4. Status Code를 기반으로 응답 상태를 구분
+
+---
+
+## 인증과 인가
+- 인증 : 요청자의 신원을 확인하는 것
+  -> ex) 로그인
+  -> API Key를 발급하여 서버 요청시 Header에 넣어준다
+- 인가 : 요청자가 요청한 작업의 권한을 확인하는 것
+  -> ex) 관리자만 유저 삭제 기능 사용가능(일반 유저와 관리자의 권한 차이)
+  -> JWT를 이용하여 사용자의 신원과 해당 권한을 확인한다
+
+---
+
+API Token vs API Key
+- API Key / API Token
+  - 보통 영구적으로 유효 / 일정 시간 후 만료됨
+  - 수동으로 폐기하기 전까지 계속 사용 가능 / 주기적으로 재발급 필요
+  - 한번 생성되면 변경되지 않음 / 필요할 때마다 새로 생성
+
+- API Key / API Token
+  - 주로 서비스나 애플리케이션 식별용 / 주로 사용자 세션이나 특정 작업 인증용
+  - 장기적인 API 접근 권한 부여 / 임시 접근 권한 부여
+  - "서버-서버 간 통신에 적합" / "클라이언트-서버 통신에 적합"

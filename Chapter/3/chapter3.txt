@@ -1,0 +1,32 @@
+# 강의 제목 : OpenAI API로 질문/응답 백엔드 서버 만들기
+
+## DataSet 
+```JavaScript
+# 아래 git repo URL 참고
+https://github.com/Rookie0031/chatbot-back
+```
+
+## 학습목표
+- REST API의 기본 개념과 인증 메커니즘(API Token, API Key)의 동작 원리 이해
+- REST API 테스트 도구인 curl과 Postman을 활용하여 Rest API 동작을 검증
+- Nest.js 프레임워크의 아키텍처를 이해하고, OOP 원칙에 따른 백엔드 서버를 구현
+- DTO를 활용한 데이터 검증과 로깅 구현을 통해 안정적인 서버 개발 방법을 습득
+
+## STEP
+1. API 개념과 인증방식 돌아보기
+2. OpenAI API로 확인하는 Restful API 구조
+3. Node.js와 express로 구현하는 OOP
+4. Nest.js를 사용한 백엔드 서버 개발
+
+## 과제
+- 프로젝트명 : OpenAI API를 활용한 LLM 백엔드 서버 구현
+  - rule. 1 OpenAI API Key 발급 및 환경 설정
+  - rule. 2 REST API 설계 및 구현:
+    - Q&A 서비스를 위한 API 엔드포인트 설계
+    - curl과 Postman으로 API 테스트
+  - rule. 3 Nest.js 서버 개발
+    - Controller, Service, Module 구조 구현
+    - DTO 이해 및 타입스크립트 Interface 적용
+    - OpenAI API 연동 서비스 구현
+    - 간단한 로깅 시스템 구축
+- 사용 툴 (또는 언어): Nest.js, Cursor AI
