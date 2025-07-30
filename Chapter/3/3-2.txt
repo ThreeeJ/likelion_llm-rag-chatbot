@@ -1,0 +1,15 @@
+# OpenAI API로 확인하는 Restful API 구조
+
+## Rest API 문서 읽는법
+1. URL로 자원의 위치를 구분
+2. HTTP Method를 통해 자원의 접근을 구분
+3. URL Path를 기반으로 요청의 경로를 구분
+4. Status Code를 기반으로 응답 상태를 구분
+
+## curl과 Postman을 통한 API 테스트
+
+### 링크
+- OpenAI API
+  - https://platform.openai.com
+- DTO 생성 사이트 - quicktype
+  - https://quicktype.io
