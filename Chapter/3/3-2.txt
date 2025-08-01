@@ -1,4 +1,4 @@
-# OpenAI API로 확인하는 Restful API 구조
+# 강의 제목 : OpenAI API로 확인하는 Restful API 구조
 
 ## Rest API 문서 읽는법
 1. URL로 자원의 위치를 구분
