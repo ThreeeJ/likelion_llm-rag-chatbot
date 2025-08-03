@@ -1,0 +1,29 @@
+# 강의 제목 : React로 간단한 채팅 UI 만들고 백엔드 연동하기
+
+## DataSet 
+```JavaScript
+# 아래 git repo URL 참고
+https://github.com/Rookie0031/chatbot-front
+```
+
+## 학습목표
+- 웹 브라우저의 기본 동작 원리와 HTTP 통신 과정을 이해
+- React의 핵심 개념(컴포넌트, 상태관리, Hook)을 이해하고 실제 UI 개발에 적용
+- 채팅 인터페이스에 필요한 컴포넌트를 구현
+- Axios를 사용한 HTTP 통신을 구현하고 브라우저 개발자 도구를 활용하여 디버깅하는 기초 방법에 대한 학습
+
+## STEP
+1. 웹 브라우저와 기초 프론트엔드 이해
+2. React를 사용한 UI 개발
+3. 채팅 UI 설계 및 구현
+4. 백엔드 연동과 HTTP 통신
+
+## 과제
+- 프로젝트 명 : React 기반 챗봇 UI 개발 및 백엔드 연동
+  - rule. 1 대화형 인터페이스 UI 구현
+    - 채팅 UI
+    - 질의/응답 View
+  - rule. 2 LLM API 백엔드 서버 연동
+    - Axios를 사용한 API 통신 구현
+    - 네트워크 에러 처리
+- 사용 툴 (또는 언어): React, Typescript
