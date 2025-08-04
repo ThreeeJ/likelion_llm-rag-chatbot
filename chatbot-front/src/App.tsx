@@ -1,55 +1,57 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-import styles from './Counter.module.css'
-
-// Counter 컴포넌트 정의
-interface CounterProps {
-  count: number;
-  onCountChange: (newCount: number) => void;
-  buttonText: string;
-}
-
-function Counter({ count, onCountChange, buttonText }: CounterProps) {
-  return (
-    <div className={styles.card}>
-      <button
-        className={styles.button}
-        onClick={() => onCountChange(count - 1)}
-      >
-        {buttonText} {count}
-      </button>
-    </div>
-  )
-}
+import { SearchInput } from './components/SearchInput'
+import { ChatHistory } from './components/ChatHistory'
+import { fetchOpenAIResponse } from './logic/openai'
+import type { ChatMessage } from './models/chat'
+import { v4 as uuidv4 } from 'uuid'
 
 function App() {
-  const [count, setCount] = useState(5)
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (input: string) => {
+    // 사용자 메시지 추가
+    const userMessage: ChatMessage = {
+      id: uuidv4(),
+      content: input,
+      role: 'user',
+      timestamp: new Date()
+    };
+
+    setMessages(prev => [...prev, userMessage]);
+    setIsLoading(true);
+
+    try {
+      const result = await fetchOpenAIResponse(input);
+
+      // AI 응답 메시지 추가
+      const assistantMessage: ChatMessage = {
+        id: uuidv4(),
+        content: result,
+        role: 'assistant',
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, assistantMessage]);
+    } catch (error) {
+      // 에러 메시지 추가
+      const errorMessage: ChatMessage = {
+        id: uuidv4(),
+        content: 'Error occurred while fetching response',
+        role: 'assistant',
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>React Props 예시</h1>
-      
-      {/* Counter 컴포넌트에 props 전달 */}
-      <Counter
-        count={count}
-        onCountChange={setCount}
-        buttonText="카운트:"
-      />
-
-      <p>
-        Edit <code>src/App.tsx</code> and save to test HMR
-      </p>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className='app-container'>
+        <ChatHistory messages={messages} />
+        <SearchInput onSubmit={handleSubmit} isLoading={isLoading} />
+    </div>
+  );
 }
 
-export default App
+export default App;
