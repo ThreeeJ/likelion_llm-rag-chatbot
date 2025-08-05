@@ -10,7 +10,7 @@ export class AppController {
   @Post('/chat')
   async chat(@Body() chatRequest: ChatRequest): Promise<ChatResponse> {
     try {
-      const response = await this.appService.generateResponse(chatRequest.prompt);
+      const response = await this.appService.generateText(chatRequest);
       return { success: true, message: response };
     } catch (error) {
       return { success: false, message: error.message };

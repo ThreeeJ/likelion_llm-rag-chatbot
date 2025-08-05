@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { SearchInput } from './components/SearchInput'
 import { ChatHistory } from './components/ChatHistory'
 import { fetchOpenAIResponse } from './logic/openai'
@@ -8,6 +8,12 @@ import { v4 as uuidv4 } from 'uuid'
 function App() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentTime, setCurrentTime] = useState<Date>(new Date());
+
+  useEffect(() => {
+    setCurrentTime(new Date())
+    console.log(currentTime)
+  }, [])
 
   const handleSubmit = async (input: string) => {
     // 사용자 메시지 추가
@@ -22,7 +28,7 @@ function App() {
     setIsLoading(true);
 
     try {
-      const result = await fetchOpenAIResponse(input);
+      const result = await fetchOpenAIResponse(input, currentTime.toISOString());
 
       // AI 응답 메시지 추가
       const assistantMessage: ChatMessage = {

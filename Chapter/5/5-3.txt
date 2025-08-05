@@ -1,0 +1,9 @@
+# 강의 제목 : (실습) Redis 이용해서 백엔드 서버의 문맥 관리 기능 추가하기
+
+## 용어 정리
+### React useEffect : 컴포넌트가 렌더링될 때마다 특정 작업을 수행하도록 만드는 React의 기능(Hook)
+
+---
+
+## React Component Mounting
+- 처음 컴포넌트가 생성되는 것을 마운팅(Mounting)이라 한다

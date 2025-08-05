@@ -1,10 +1,11 @@
 import type { ChatResponse } from '../dto/ChatResponse.dto'
 import type { ChatRequest } from '../dto/ChatRequest.dto'
 
-export async function fetchOpenAIResponse(input: string): Promise<string> {
+export async function fetchOpenAIResponse(input: string, timestamp: string): Promise<string> {
   try {
     const chatRequest: ChatRequest = {
-      prompt: input
+      prompt: input,
+      timestamp: timestamp
     };
 
     const response = await fetch('http://localhost:3000/openai/chat', {
