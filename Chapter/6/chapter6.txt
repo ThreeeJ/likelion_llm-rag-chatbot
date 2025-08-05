@@ -1,0 +1,19 @@
+# 강의 제목 : RAG 기반 챗봇 고도화
+
+## DataSet 
+- chapter3,4에 업로드된 git repo 참조
+
+## 학습목표
+- RAG(Retrieval-Augmented Generation)의 개념과 등장 배경 이해
+- 임베딩의 개념과 벡터 데이터베이스의 작동 원리를 이해하고 실제 구현에 활용
+- 검색-생성 파이프라인을 설계하고 구현하여 텍스트 소스 기반으로 LLM 답변 생성시키기
+
+## STEP
+1. RAG 아키텍처 이해
+2. RAG 기반 챗봇 고도화
+
+## 과제
+- 프로젝트 명 : RAG 적용하여 나만의 기술면접 대비용 챗봇 만들기
+  - rule. 1 RAG 이해를 위한 임베딩과 벡터 DB 개념에 대한 정리
+  - rule. 2 Redis-Stack을 벡터 DB로 활용하여 텍스트 소스 기반으로 rag 기반 답변 API 추가하기
+- 사용 툴 (또는 언어): redis-stack, nest.js, OpenAI API
