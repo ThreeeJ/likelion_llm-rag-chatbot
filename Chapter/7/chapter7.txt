@@ -1,0 +1,15 @@
+# 강의 제목 : Streaming API와 Prompt Caching으로 제품 고도화해보기
+
+## 학습목표
+- 토큰의 개념을 이해하고 Prompt Caching을 통해 토큰 감소를 체감해본다.
+- Streaming API를 이해하고 적용하여 채팅 UX를 향상시켜본다.
+
+## STEP
+1. Prompt Caching 테스트
+2. Streaming API 연동
+
+## 과제
+- 프로젝트 명 : RAG 적용하여 나만의 기술면접 대비용 챗봇 만들기 고도화
+  - rule. 1 Prompt Caching 적용해보기
+  - rule. 2 Streaming API로 채팅 UX 개선해보기 
+- 사용 툴 (또는 언어): Node.js, React, OpenAI API 
