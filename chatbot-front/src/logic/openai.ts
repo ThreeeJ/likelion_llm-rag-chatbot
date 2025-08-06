@@ -8,7 +8,7 @@ export async function fetchOpenAIResponse(input: string, timestamp: string): Pro
       timestamp: timestamp
     };
 
-    const response = await fetch('http://localhost:3000/openai/chat', {
+    const response = await fetch('http://localhost:3000/openai/rag', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

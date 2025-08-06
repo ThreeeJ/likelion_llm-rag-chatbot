@@ -66,7 +66,7 @@ export class AppService {
   async generateTextWithRAG(chatRequestDto: ChatRequest): Promise<string> {
     try {
       const questionEmbedding = await this.createEmbedding(chatRequestDto.prompt); // 사용자 질문에 대한 임베딩 생성
-      const searchResults = await this.redisService.searchVector('test-test', questionEmbedding); // 벡터 검색 수행하고 나온 결과물이 텍스트 형태로 담긴
+      const searchResults = await this.redisService.searchVector('my-tech-chatbot', questionEmbedding); // 벡터 검색 수행하고 나온 결과물이 텍스트 형태로 담긴
       const relevantDocs = searchResults.documents.map(doc => doc.value.text).join('\n'); // 관련 문서 컨텍스트 구성
       
       // 시스템 프롬프트에 관련 문서 정보 추가
@@ -74,9 +74,10 @@ export class AppService {
       this.logger.debug(`System prompt: ${systemPrompt}`);
 
       const chatRequest = {
-        model: 'gpt-3.5-turbo',
+        model: 'gpt-4o-mini',
         messages: [
           { role: 'system', content: systemPrompt },
+          { role: 'user', content: chatRequestDto.prompt },
         ]
       };
 
@@ -106,7 +107,7 @@ export class AppService {
     try {
       this.logger.log('RAG 인덱스 초기화 시작...');
       // 벡터 인덱스 생성
-      await this.redisService.createVectorIndex('test-test');
+      await this.redisService.createVectorIndex('my-tech-chatbot');
       this.logger.log('벡터 인덱스 생성 완료');
       
       // 문서 로드 및 인덱싱
@@ -219,7 +220,7 @@ export class AppService {
       this.logger.log('RAG 시스템 초기화 시작...');
       
       // 벡터 인덱스 초기화
-      await this.redisService.resetVectorIndex('test-test');
+      await this.redisService.resetVectorIndex('my-tech-chatbot');
       
       // 문서 다시 로드 및 인덱싱
       await this.loadAndIndexDocuments(directoryPath);
